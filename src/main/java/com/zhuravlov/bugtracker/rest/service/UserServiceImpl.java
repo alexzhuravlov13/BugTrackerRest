@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void addUser(UserEntity userEntity) {
         userEntity.setPassword(bCryptPasswordEncoder.encode(userEntity.getPassword()));
-        userEntity.setRoles(new ArrayList<>(Arrays.asList(roleRepository.findByName("ROLE_USER"))));
+        userEntity.setRoles(new HashSet<>(Arrays.asList(roleRepository.findByName("ROLE_USER"))));
 
         userRepository.save(userEntity);
     }

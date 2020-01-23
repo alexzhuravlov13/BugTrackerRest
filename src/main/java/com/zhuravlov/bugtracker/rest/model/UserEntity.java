@@ -41,7 +41,7 @@ public class UserEntity {
     private String email;
 
     @ManyToMany
-    private List<RoleEntity> roles;
+    private Set<RoleEntity> roles;
 
     @NonNull
     @JsonIgnore

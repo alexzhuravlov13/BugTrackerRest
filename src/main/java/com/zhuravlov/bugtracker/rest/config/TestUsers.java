@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 @Component
 public class TestUsers implements InitializingBean {
@@ -48,10 +47,10 @@ public class TestUsers implements InitializingBean {
         UserEntity usualEmployee = new UserEntity("Usual", "Employee", "employee@email.com", "111111");
 
         userService.addUser(bigBoss);
-        bigBoss.setRoles(new ArrayList<>(Arrays.asList(roleRepository.findByName("ROLE_USER"), roleRepository.findByName("ROLE_BOSS"))));
+        bigBoss.setRoles(new HashSet<>(Arrays.asList(roleRepository.findByName("ROLE_USER"), roleRepository.findByName("ROLE_BOSS"))));
 
         userService.addUser(admin);
-        admin.setRoles(new ArrayList<>(Arrays.asList(roleRepository.findByName("ROLE_USER"), roleRepository.findByName("ROLE_ADMIN"))));
+        admin.setRoles(new HashSet<>(Arrays.asList(roleRepository.findByName("ROLE_USER"), roleRepository.findByName("ROLE_ADMIN"))));
 
         userService.updateUser(bigBoss);
         userService.updateUser(admin);

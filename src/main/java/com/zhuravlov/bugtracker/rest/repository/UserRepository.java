@@ -9,7 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 import java.util.Optional;
 
-@RepositoryRestResource(path = "users")
 public interface UserRepository extends CrudRepository<UserEntity, Integer> {
     @Override
     <S extends UserEntity> S save(S entity);
